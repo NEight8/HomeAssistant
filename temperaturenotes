@@ -1,0 +1,13 @@
+#Within HomeAssistant I am trying to create a template sensor to show C, but it keeps seeing everything as strings.
+
+template:
+  - sensor:
+      - name: "Basement_Temp"
+        state: >
+          {% set basementtemp = states('sensor.esphome_web_c3c983_basement_temperature') | float(3) %}          
+          {{ (basementtemp-32.0)*5.0/9.0 | float(1) }}
+
+
+#YAML in ESPHome looks promising but I need to dig deeper:
+
+https://community.home-assistant.io/t/how-to-display-both-c-and-f/411487
