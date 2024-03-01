@@ -40,7 +40,7 @@ i2c:
   scl: 5
   scan: True
 
-# Example configuration entry
+# Sensors
 sensor:
   - platform: bme280_i2c
     temperature:
@@ -55,7 +55,12 @@ sensor:
       id: humidity
     address: 0x76
     update_interval: 20s
-
+  
+  - platform: template
+    name: Temperature_c
+    id: temperature_c
+    lambda: return id(temperature).state;
+    update_interval: 5s
 
 web_server:
   port: 80    
