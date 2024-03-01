@@ -1,10 +1,10 @@
 # Basement ESP8266MOD with BME280 attached.
 #
 # Wiring:   ESP8266MOD   BME280
-#           3V3           VIN
+#           3V3           VIN   (can also use 5V with the sensor I chose)
 #           GND           GND
-#           D1            SCL
-#           D2            SDA
+#   GPIO5   D1            SCL
+#   GPIO4   D2            SDA
 
 esphome:
   name: esphome-web-[redacted]
