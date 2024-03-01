@@ -11,3 +11,19 @@ template:
 #YAML in ESPHome looks promising but I need to dig deeper:
 
 https://community.home-assistant.io/t/how-to-display-both-c-and-f/411487
+
+
+# here's what I have tried in the device yaml without success.  Need to refine this.
+
+sensor:
+ - platform: template
+   name: "Basement C"
+   lambda: |-
+       return (sensor.esphome_web_c3c983_basement_temperature);
+   update_interval: 10s
+
+sensor:
+  - platform: template
+    name: "Basement F"
+    lambda: return sensor.esphome_web_c3c983_basement_temperature * 9.0/5.0+32.0;
+    update_interval: 10s
