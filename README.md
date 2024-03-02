@@ -2,6 +2,8 @@
 
 This repository will hold yaml files and notes for my playing around with Home Assistant.
 
+esphome-web-basement.yaml should usually contain a working configuration for an ESP8266/BME280 combo.
+
 Useful resources:
 
 Peyanski's excellent tutorial:   https://peyanski.com/diy-temperature-sensor-for-home-assistant-with-bmp280/#How_to_get_ESPHome_Dashboard
