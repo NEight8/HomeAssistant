@@ -40,27 +40,27 @@ i2c:
   scl: 5
   scan: True
 
-# Sensors
+# Sensors - this works and passes back degrees C as a basic number so HA won't interpret it
 sensor:
   - platform: bme280_i2c
     temperature:
       id: temperature
-      name: "Basement Temperature"
+      name: "Temperature"
       oversampling: 16x
     pressure:
-      name: "Basement Pressure"
+      name: "Pressure"
       id: pressure
     humidity:
-      name: "Basement Humidity"
+      name: "Humidity"
       id: humidity
     address: 0x76
-    update_interval: 20s
-  
+    update_interval: 20s 
+
   - platform: template
-    name: Temperature_c
+    name: "temp_c"
     id: temperature_c
-    lambda: return id(temperature).state;
-    update_interval: 5s
+    lambda: return id(temperature).state;  
+    update_interval: 20s
 
 web_server:
   port: 80    

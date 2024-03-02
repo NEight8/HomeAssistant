@@ -27,3 +27,52 @@ sensor:
     name: "Basement F"
     lambda: return sensor.esphome_web_c3c983_basement_temperature * 9.0/5.0+32.0;
     update_interval: 10s
+
+
+  - platform: template
+    name: conditions
+    id: conditions
+    lambda: |-
+      return " " +
+      to_string(id(temperature).state) + "C " +
+      to_string(id(temperature).state * 9.0/5.0+32.0) + "F / " + 
+      string humi  = to_string(id(humidity).state) + "% ";
+    update_interval: 15s
+
+   - platform: template
+    name: conditions
+    id: conditions
+    lambda: |-
+      it.printf(" ");
+      it.printf(id(temperature).state);
+    update_interval: 15s
+
+
+  - platform: template
+    name: conditions
+    id: conditions
+    lambda: |-
+      return 
+        printf(" ") + 
+        printf("%.1f",id(temperature).state) + printf("C /") +
+        #printf("%.1f",(id(temperature).state * 9.0/5.0+32.0)) + printf("F, ") +
+        printf("%.1f",id(humidity).state) + printf("%%");
+    update_interval: 15s
+
+
+    text_sensor:
+  - platform: template
+    name: conditions
+    id: conditions
+    lambda: |-
+      return 
+        printf("%.1fF / %.1f C, %.1f %%", 
+        id(temperature).state,
+        id(temperature).state * 9.0/5.0+32.0,
+        id(humidity).state
+        ).;
+    update_interval: 15s
+
+
+
+
