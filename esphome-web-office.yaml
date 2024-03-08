@@ -1,0 +1,48 @@
+# This will only contain the captive_portal section of the yaml.  The rest is all ESPHome generic setup.
+
+captive_portal:
+
+i2c:
+  sda: 4
+  scl: 5
+  scan: True
+
+# Sensors
+sensor:
+  - platform: bme280_i2c
+    temperature:
+      id: temperature
+      name: "Temperature"
+      oversampling: 16x
+      filters:
+      - calibrate_linear:
+         method: least_squares
+         datapoints:
+          # Map 0.0 (from sensor) to 1.0 (true value)
+          - 18.1 -> 14.4  # consistent overnight readings compared to set temp on thermometer.
+          - 21.8 -> 17.2  # 2024-03-08 06:22
+          - 22.1 -> 17.8  # 2024-03-08 06:26
+          - 22.7 -> 18.3  # 2024-03-08 06:33
+          - 22.9 -> 18.9  # 2024-03-08 06:15
+          - 23.3 -> 19.4  # 2024-03-08 06:42
+          - 23.7 -> 20.0  # 2024-03-08 06:51
+          - 25.1 -> 21.1  # 2024-03-08 07:25
+          - 25.2 -> 21.7  # 2024-03-08 07:29
+    pressure:
+      name: "Pressure"
+      id: pressure
+    humidity:
+      name: "Humidity"
+      id: humidity
+    address: 0x76
+    update_interval: 60s 
+
+  - platform: template
+    name: "temp_c"
+    id: temperature_c
+    lambda: return id(temperature).state;  
+    update_interval: 60s
+
+web_server:
+  port: 80    
+    
