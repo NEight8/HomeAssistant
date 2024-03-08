@@ -1,0 +1,12 @@
+      # Nate's Office Sensor calibration data, calibrated against the thermostat.
+      filters:
+      - calibrate_linear:
+         method: least_squares
+         datapoints:
+          # Map 0.0 (from sensor) to 1.0 (true value)
+          - 18.1 -> 14.4  # consistent overnight readings compared to set temp on thermometer.
+          - 21.8 -> 17.2  # 2024-03-08 06:22
+          - 22.1 -> 17.8  # 2024-03-08 06:26
+          - 22.7 -> 18.3  # 2024-03-08 06:33
+          - 22.9 -> 18.9  # 2024-03-08 06:15
+          - 

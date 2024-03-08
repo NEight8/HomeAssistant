@@ -1,0 +1,10 @@
+Useful templates
+
+
+{{ states('sensor.esphome_web_c45f56_temperature') }}F / {{ states('sensor.esphome_web_c45f56_temp_c') }}C  {{ states('sensor.esphome_web_c45f56_humidity') }}%
+
+
+
+
+
+
