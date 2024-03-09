@@ -1,0 +1,7 @@
+Ordered this part for the cables:  https://www.aliexpress.us/item/3256802718583041.html
+
+Instructions found:
+
+https://github.com/SwiCago/HeatPump/issues/13#issuecomment-457897457
+
+https://community.home-assistant.io/t/mitsubishi-ac-with-wemos-d1-mini-pro/107007/241
